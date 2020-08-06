@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FOCUS Laying Foundation for IIT-JEE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<style>
+		img{
+			width: 100%;
+		}
+		body
+		{
+			background-color: maroon;
+		}
+        .jumbotron
+        {
+            background-color: rgb(150,255,100);
+            text-align: center;
+            color: rgba(0,0,0,0.98);
+        }
+		.navbar-brand
+		{
+			margin: 1px;
+			border-style: none solid solid none;
+			border-width: 1px;
+			border-right-color: rgba(200,200,200,0.78);
+			border-bottom-color: rgba(200,200,200,0.78);
+			background-color: rgba(255,180,10,0.3);
+		}
+		li
+		{
+			margin: 1px;
+			background-color: rgba(200,200,200,0.25);
+			border-style: none solid solid none;
+			border-width: 1px;
+			border-right-color: rgba(200,200,200,0.78);
+			border-bottom-color: rgba(200,200,200,0.78);
+			
+		}
+		
+		
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>                        
+			    </button>
+				<a href="/" class="navbar-brand"><b>FOCUS</b></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-left navbar-nav">
+					<li><a href="/abouts">Abouts</a></li>
+					<li><a href="/contacts">Members</a></li>
+				</ul>
+				<ul class="nav navbar-right navbar-nav">
+					<li><a href="/login">Login</a></li>
+					<li><a><b>Sandeep Auddy</b></a></li>
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="col-lg-1 col-xs-0"></div>
+		<div class="col-lg-10 col-xs-12">
+            <header class="jumbotron text-center">
+				<div class="container">
+					<h1><b>Team FOCUS</b></h1>
+					<h3><i>We are always there to support you!</i></h3>
+					<hr>
+					<% if(editable){ %>
+						<p><a href="/members/new" class="btn btn-primary btn-lg">Add a new Member</a></p>
+					<% } %>
+					
+				</div>
+            </header>
+            <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+				<% members.forEach(function(value){ %>
+					<div class="col-lg-3 col-md-4 col-sm-6">
+						<div class="thumbnail">
+							<img src="profile_pics/<%= value.data.fileName %>">
+							<div class="caption">
+								<h4><b style="color: navy;"><%= value.data.name %></b></h4>
+								<h4 style="color: gray;">Contact: <%= value.data.contact %></h4>
+								<h4 style="color: lightgrey;" data-toggle="tooltip" data-placement="top" title="<%= value.data.email %>">
+									EMAIL
+								</h4>
+								<h5 style="color: black;"><%= value.data.abouts %></h5>
+								<h5 style="color: darkgreen;"><strong><%= value.data.designation %></strong></h5>
+								<% if(editable){ %>
+									<a href="/members/edit/<%= value._id %>" class="btn btn-block btn-warning">EDIT</a>
+									<br>
+									<form action="/members/remove/<%= value._id %>?_method=DELETE" method="POST">
+										<input type="submit" class="btn btn-block btn-danger" value="DELETE">
+									</form>
+								<% } %>
+							</div>
+						</div>
+					</div>
+				<% }); %>
+			</div>
+		</div>
+		<div class="col-lg-1 col-xs-0"></div>
+	</div>
+</body>
+</html>

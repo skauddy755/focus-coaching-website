@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Focussians_Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		html
+		{
+			width: 100%;
+			height: 100%;
+		}
+		nav
+		{
+			width: 100%;
+		}
+        .navbar-brand
+		{
+			margin: 1px;
+			border-style: none solid solid none;
+			border-width: 1px;
+			border-right-color: rgba(200,200,200,0.78);
+			border-bottom-color: rgba(200,200,200,0.78);
+			background-color: rgba(255,180,10,0.3);
+		}
+		li
+		{
+			margin: 1px;
+			background-color: rgba(200,200,200,0.25);
+			border-style: none solid solid none;
+			border-width: 1px;
+			border-right-color: rgba(200,200,200,0.78);
+			border-bottom-color: rgba(200,200,200,0.78);
+			
+		}
+		body
+		{
+			background-image: url("pensBg.jpg");
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+		}
+		#FormDiv
+		{
+			margin-top: 5%;
+			border-radius: 5px;
+			background-color: rgba(200,80,20,0.5);
+			color: rgba(255,255,255,0.8);
+		}
+		h1
+		{
+			text-align: center;
+		}
+		label
+		{
+			font-family: sans-serif;
+			font-weight: lighter;
+		}
+		.ut
+		{
+			background-color: rgba(255,255,255,0.7);
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>                        
+			    </button>
+				<a href="/" class="navbar-brand"><b>FOCUS</b></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-left navbar-nav">
+					<li><a href="/abouts">Abouts</a></li>
+					<li><a href="/contacts">Members</a></li>
+				</ul>
+				<ul class="nav navbar-right navbar-nav">
+					<li><a href="/login">Login</a></li>
+					<li><a><b>Sandeep Auddy</b></a></li>
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="col-lg-4 col-md-4 col-sm-3 col-xs-1"></div>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-10" id="FormDiv">
+			<form class="form-group" action="/login" method="POST">
+				<h1>Login to <b>FOCUS</b></h1><br>
+				<hr><br>
+				<label for="username">Username : </label>
+				<input type="text" id="username" name="username" class="form-control" placeholder="Enter your Username"><br>
+				<label for="username">Password : </label>
+				<input type="password" id="password" name="password" class="form-control" placeholder="Enter your Password"><br>
+				<br>
+				<div class="form-group">
+					<legend>Select User-Type : </legend>
+					
+					<div class="ut radio form-control form-check">
+						<label class="form-check-label" for="student">
+							<input type="radio" id="student" name="userType" value="STUDENT"> STUDENT
+						</label><br>
+					</div>
+					<div class="ut radio form-control form-check">
+						<label class="form-check-label" for="faculty">
+							<input type="radio" id="faculty" name="userType" value="FACULTY"> FACULTY
+						</label><br>
+					</div>
+					<div class="ut radio form-control form-check">
+						<label class="form-check-label" for="admin">
+							<input type="radio" id="admin" name="userType" value="ADMIN"> ADMIN
+						</label><br>
+					</div>
+				</div>
+				<h4><a href="/">Go back to HOMEPAGE</a><br><br></h4>
+				<input type="submit" class="btn btn-primary btn-block btn-lg" value="SUBMIT">
+			</form>
+			<br>
+			<h4>.</h4>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-3 col-xs-1"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FOCUS Laying Foundation for IIT-JEE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<style>
+		img{
+			width: 100%;
+		}
+		body
+		{
+			background-color: rgba(255,150,0,8);
+		}
+		.navbar-brand
+		{
+			margin: 1px;
+			border-style: none solid solid none;
+			border-width: 1px;
+			border-right-color: rgba(200,200,200,0.78);
+			border-bottom-color: rgba(200,200,200,0.78);
+			background-color: rgba(255,180,10,0.3);
+		}
+		li
+		{
+			margin: 1px;
+			background-color: rgba(200,200,200,0.25);
+			border-style: none solid solid none;
+			border-width: 1px;
+			border-right-color: rgba(200,200,200,0.78);
+			border-bottom-color: rgba(200,200,200,0.78);
+			
+		}
+        .jumbotron
+        {
+            text-align: center;
+            background-color: rgba(250,250,255,0.93);
+        }
+        label
+        {
+            font-weight: lighter;
+            font-family: sans-serif;
+        }
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>                        
+			    </button>
+				<a href="/" class="navbar-brand"><b>FOCUS</b></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-left navbar-nav">
+					<li><a href="/abouts">Abouts</a></li>
+					<li><a href="/contacts">Members</a></li>
+				</ul>
+				<ul class="nav navbar-right navbar-nav">
+					<li><a href="/login">Login</a></li>
+					<li><a><b>Sandeep Auddy</b></a></li>
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+    </nav>
+    
+	<div class="container">
+		<div class="col-md-3 col-sm-0"></div>
+		<div class="col-md-6 col-sm-12">
+            <div class="jumbotron">
+                <h2>ADD A NEW MEMBER:</h2>
+                <hr>
+                <form style="text-align: left; color: rgba(180,120,60,0.94);" enctype='multipart/form-data' class="form-group" action="/members/new" method="POST">
+					<div class="form-group">
+                        <label for="myNewFile">BROWSE FOR FILES (either JPEG or JPG)</label>
+                        <input id="myNewFile" class="form-control" type="file" name="myNewFile">
+                    </div>
+					<div class="form-group">
+                        <label for="username">USERNAME:</label>
+                        <input id="username" class="form-control" type="text" placeholder="Enter username" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">PASSWORD:</label>
+                        <input id="password" class="form-control" type="password" placeholder="Enter Password" name="password">
+					</div>
+					<div class="form-group">
+                        <label for="name">NAME:</label>
+                        <input id="name" class="form-control" type="text" placeholder="Enter Name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">EMAIL ID:</label>
+                        <input id="email" class="form-control" type="text" placeholder="Enter email-id" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="designation">DESIGNATION</label>
+                        <input id="designation" class="form-control" type="text" placeholder="Enter Designation" name="designation">
+                    </div>
+                    <div class="form-group">
+                        <label for="abouts">ABOUTS</label>
+                        <input id="abouts" class="form-control" type="text" placeholder="Enter abouts" name="abouts">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Contact Number</label>
+                        <input id="contact" class="form-control" type="text" placeholder="CONTACT NUMBER" name="contact">
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-success btn-block" type="submit" value="SUBMIT">
+					</div>
+                </form>
+            </div>
+		</div>
+		<div class="col-md-3 col-sm-0"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FOCUS Laying Foundation for IIT-JEE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<style>
+		img{
+			width: 100%;
+		}
+		body
+		{
+			background-color: rgba(255,150,0,8);
+		}
+		.navbar-brand
+		{
+			margin: 1px;
+			border-style: none solid solid none;
+			border-width: 1px;
+			border-right-color: rgba(200,200,200,0.78);
+			border-bottom-color: rgba(200,200,200,0.78);
+			background-color: rgba(255,180,10,0.3);
+		}
+		li
+		{
+			margin: 1px;
+			background-color: rgba(200,200,200,0.25);
+			border-style: none solid solid none;
+			border-width: 1px;
+			border-right-color: rgba(200,200,200,0.78);
+			border-bottom-color: rgba(200,200,200,0.78);
+			
+		}
+        .jumbotron
+        {
+            text-align: center;
+            background-color: rgba(250,250,255,0.93);
+        }
+		#myWell
+		{
+			text-align: left;
+			background-color: rgba(200,200,255,0.97);
+		}
+		.row
+		{
+			background-color: white;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+		h6
+		{
+			text-align: right;
+			color: slategrey;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>                        
+			    </button>
+				<a href="/" class="navbar-brand"><b>FOCUS</b></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-left navbar-nav">
+					<li><a href="/abouts">Abouts</a></li>
+					<li><a href="/contacts">Members</a></li>
+				</ul>
+				<ul class="nav navbar-right navbar-nav">
+					<li><a href="/login">Login</a></li>
+					<li><a><b>Sandeep Auddy</b></a></li>
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="col-lg-1 col-sm-0"></div>
+		<div class="col-lg-10 col-sm-12">
+			<div class="jumbotron">
+				<p style="text-align: left;">
+					<a href="/dashboard" class="btn btn-md btn-primary"> Back To DASHBOARD</a>
+				</p>
+				<hr>
+                <h1>Class Materials :</h1>
+                <h4><i>Check what you have missed out!</i></h4>
+				<hr>
+				<div class="container">
+					<div style="border: solid rgba(180,180,200,0.7); border-radius: 10px;" class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+						<br>
+						
+						<form class="form-group" style="text-align: left" action="/materials/<%= className %>" method="POST">
+							<label style="font-weight: lighter; color:darkslategrey;">Select your Search Query here:</label>
+							<select name="searchParam" class="custom-select form-control" id="inputGroupSelect04" aria-label="Example select with button addon">
+							<% searchTags.forEach(function(value){ %>
+								<option value="<%= value %>"><%= value %></option>	
+							<% }); %>
+							</select>
+							<br>
+							<button class="form-control btn btn-block btn-success" type="submit">
+								<span class="glyphicon glyphicon-search" aria-hidden="true"></span> SEARCH...
+							</button>
+						</form>
+					</div><br>
+					<div style="text-align: left;" class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
+						<div style="color: rgba(50,150,80,0.96);" class="container">
+							<h4>Your PDFs will be shown in the pool below</h4>
+							<h4>Based on your Search-Query</h4>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<% if(editable){ %>
+					<a href="/materials/<%= className %>/new" class="btn btn-lg btn-info">ADD MATERIAL</a>
+				<% } %>
+				
+			</div>
+			<div id="myWell" class="jumbotron">
+				<h3><%= tag %></h3>
+				<hr>
+				<% materials.forEach(function(material){ %>
+					<div class="row">
+						<div class="container">
+							<a href="/materials/<%= className %>/<%= material._id %>" class="btn btn-primary btn-md">
+								<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> DOWNLOAD
+							</a> 
+							<h5 data-toggle="tooltip" data-placement="top" title="CoordinateGeometry_17thJuly_CN">
+								<strong><%= material.fileName %></strong>
+							</h5>
+							<h5><%= material.desc %><h5>
+							<h6><%= material.date.toString() %></h6>
+							
+							<div style="text-align: right;" class="container">
+								<a href="/materials/<%= className %>/<%= material._id %>/edit" class="btn btn-warning">
+									<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> EDIT
+								</a>
+								<form action="/materials/<%= className %>/<%= material._id %>/remove?_method=DELETE" method="POST">
+									<input type="submit" class="btn btn-md btn-danger" value="DELETE">	
+								</form>
+							</div>
+						</div>
+					</div>
+				<% }); %>
+				
+		</div>
+		<div class="col-lg-1 col-sm-0"></div>
+	</div>
+</body>
+</html>

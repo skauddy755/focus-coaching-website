@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MoreInfo_Yelpcamp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="/stylesheet/main.css">
+    <style type="text/css">
+
+        html
+        {
+            width: 100%;
+            height: 100%;
+        }
+        .navbar-brand
+		{
+			margin: 1px;
+			border-style: none solid solid none;
+			border-width: 1px;
+			border-right-color: rgba(200,200,200,0.78);
+			border-bottom-color: rgba(200,200,200,0.78);
+			background-color: rgba(255,180,10,0.3);
+		}
+		li
+		{
+			margin: 1px;
+			background-color: rgba(200,200,200,0.25);
+			border-style: none solid solid none;
+			border-width: 1px;
+			border-right-color: rgba(200,200,200,0.78);
+			border-bottom-color: rgba(200,200,200,0.78);
+			
+		}
+        img{
+			width: 100%;
+		}
+        
+        body
+		{
+            width: 100%;
+            height: 100%;
+			background-image: url("darkBlue.jpg");
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+		}
+        #ui
+        {
+            background-color: rgba(255,255,255,0.8);
+            text-align:center
+            
+        }
+        #profile
+        {
+            text-align: left;
+        }
+        
+	</style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			    </button>
+				<a href="/" class="navbar-brand"><b>FOCUS</b></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-left navbar-nav">
+					<li><a href="/abouts">Abouts</a></li>
+					<li><a href="/contacts">Members</a></li>
+				</ul>
+				<ul class="nav navbar-right navbar-nav">
+					<li><a href="/login">Login</a></li>
+					<li><a><b>Sandeep Auddy</b></a></li>
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+    <div class="container">
+		<div class="col-lg-2 col-md-2 col-sm-1 col-xs-0"></div>
+		<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
+			<div id="ui" class="jumbotron">
+                <h1>Welcome to the DASHBOARD!</h1>
+                <h3><i>Explore your Class-materials and other resources...</i></h3>
+                <a href="/materials/<%= user.data.class %>" class="btn btn-block btn-lg btn-info">Get Class Materials</a>
+                <a class="btn btn-block btn-lg btn-warning">View Test Series</a>
+                <hr>
+                <br>
+                <h2><strong><u>MY PROFILE:</strong></u></h2>
+                <hr>
+                <div class="thumbnail">
+                    <img src="profilePhoto.jpeg">
+                    <div class="caption">
+                        <h2><strong><%= user.data.name %></strong></h2>
+                    </div>
+                    <hr>
+                    <div id="profile" class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-xs-12">
+                                <h5 style="color: maroon;"><strong>EMAIL ID:</strong><h5>
+                            </div>
+                            <div class="col-lg-12 col-xs-12">
+                                <h5><%= user.data.email %></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-xs-12">
+                                <h5 style="color: maroon;"><strong>USERNAME</strong><h5>
+                            </div>
+                            <div class="col-lg-12 col-xs-12">
+                                <h5><%= user.username %></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-xs-12">
+                                <h5 style="color: maroon;"><strong>PASSWORD:</strong><h5>
+                            </div>
+                            <div class="col-lg-12 col-xs-12">
+                                <h5><%= user.password %></h5>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-6 col-xs-6">
+                                <h5 style="color: maroon;"><strong>Father's Name:</strong><h5>
+                            </div>
+                            <div class="col-lg-6 col-xs-6">
+                                <h5><%= user.data.fatherName %><h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-xs-6">
+                                <h5 style="color: maroon;"><strong>Guardian:</strong><h5>
+                            </div>
+                            <div class="col-lg-6 col-xs-6">
+                                <h5><%= user.data.guardianName %><h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-xs-6">
+                                <h5 style="color: maroon;"><strong>Class:</strong><h5>
+                            </div>
+                            <div class="col-lg-6 col-xs-6">
+                                <h5><%= user.data.className %><h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-xs-6">
+                                <h5 style="color: maroon;"><strong>School:</strong><h5>
+                            </div>
+                            <div class="col-lg-6 col-xs-6">
+                                <h5><%= user.data.schoolName %><h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-xs-6">
+                                <h5 style="color: maroon;"><strong>Student's Contact Number:</strong><h5>
+                            </div>
+                            <div class="col-lg-6 col-xs-6">
+                                <h5><%= user.data.contactS %><h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-xs-6">
+                                <h5 style="color: maroon;"><strong>Parent's Contact Number:</strong><h5>
+                            </div>
+                            <div class="col-lg-6 col-xs-6">
+                                <h5><%= user.data.contactP %><h5>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-12 col-xs-12">
+                                <h5 style="color: maroon;"><strong>Permanent Address:</strong><h5>
+                            </div>
+                            <div class="col-lg-12 col-xs-12">
+                                <h5><%= user.data.address %><h5>
+                            </div>
+                        </div>
+                        <hr>
+                        <h5 style="color: tomato;"><strong><i>NOTE:</i></strong></h5>
+                        <h5 style="color: tomato;"><i>In case of any Discrepency kindly report to the concerned authority...</i></h5>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-1 col-xs-0"></div>
+	</div>
+</body>
+</html>
